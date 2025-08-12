@@ -53,3 +53,12 @@ input {
     flex-direction: column;
     align-items: center;
 }
+
+
+/*book.ejs*/
+#book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

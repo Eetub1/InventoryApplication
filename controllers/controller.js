@@ -29,11 +29,15 @@ async function getBooksByGenre(req, res) {
 async function getBook(req, res) {
     const bookName = req.params.book
     const book = await db.getBookByName(bookName)
-    console.log(book);
+    //console.log(book);
     if (!book) {
         return res.status(404).send("Book not found");
     }
     res.render("book", {book})
+}
+
+function updateBook(req, res) {
+    console.log("TÄÄLLÄ OLLAA");
 }
 
 module.exports = {
@@ -41,5 +45,6 @@ module.exports = {
     getBooks,
     getGenres,
     getBooksByGenre,
-    getBook
+    getBook,
+    updateBook
 }

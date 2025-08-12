@@ -8,7 +8,42 @@
 </head>
 <body>
     <%- include("partials/header") %>
-    <h1>Book page under progress</h1>
-    <p>Name of the book: <%= book.book_name %></p>
+    <div id="book-container">
+        <p>Name: <%= book.book_name %></p>
+        <p>Author: <%= book.author_name %></p>
+        <p>Year: <%= book.release_year %></p>
+        <p>Pages: <%= book.page_count %></p>
+        <button id="edit-book-information">Edit</button>
+    </div>
+
+    <dialog id="editBookDialog">
+        <form action="/books" method="POST">
+            <div id="form-rows-container">
+
+                <div class="form-row">
+                    <label for="">Name</label>
+                    <input name="book_name" value="<%= book.book_name %>" type="text">
+                </div>
+
+                <div class="form-row">
+                    <label for="">Author</label>
+                    <input name="author_name" value="<%= book.author_name %>" type="text">
+                </div>
+
+                <div class="form-row">
+                    <label for="">Year</label>
+                    <input name="release_year" value="<%= book.release_year %>" type="text">
+                </div>
+
+                <div class="form-row">
+                    <label for="">Pages</label>
+                    <input name="page_count" value="<%= book.page_count %>" type="text">
+                </div>
+
+            </div>
+            <button type="submit" id="save-changes-btn">Save changes</button>
+        </form>
+    </dialog>
+    <script src="/js/book.js"></script>
 </body>
 </html>
