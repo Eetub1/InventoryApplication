@@ -2,6 +2,6 @@ const express = require("express")
 const router = express.Router()
 const controller = require("../controllers/controller")
 
-router.get("/", controller.getAllBooks)
+router.get("/", controller.getBooks)
 
 module.exports = router

@@ -8,12 +8,10 @@
 </head>
 <body>
     <%- include("partials/header") %>
-    <h1>Book stuff here</h1>
     <div>
         <% books.forEach(book => { %>
             <p><%= book.book_name %></p>
         <% }) %>
     </div>
-    <p><a href="/">Go back to Homepage</a></p>
 </body>
 </html>

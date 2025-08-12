@@ -7,11 +7,17 @@ async function getAllBooks() {
 
 async function getMatchingBooks(searchTerm) {
     const { rows } = await pool.query(
-      "SELECT * FROM books WHERE author_name ILIKE $1",[`%${searchTerm}%`])
+      "SELECT * FROM books WHERE book_name ILIKE $1",[`%${searchTerm}%`])
+    return rows 
+}
+
+async function getAllGenres() {
+    const { rows } = await pool.query("SELECT genre_name FROM genres")
     return rows 
 }
 
 module.exports = {
     getAllBooks,
-    getMatchingBooks
+    getMatchingBooks,
+    getAllGenres
 }

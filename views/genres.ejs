@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
-    <title>Homepage</title>
+    <title>Genres</title>
 </head>
 <body>
     <%- include("partials/header") %>
-    <h2>Welcome to the Homepage</h2>
+    <h2>All genres:</h2>
+    <% genres.forEach(genre => { %>
+        <p><%= genre.genre_name %></p>
+        <% }) %>
 </body>
 </html>
