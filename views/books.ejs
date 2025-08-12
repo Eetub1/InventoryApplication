@@ -8,9 +8,13 @@
 </head>
 <body>
     <%- include("partials/header") %>
-    <div>
+    <div id="books-container">
         <% books.forEach(book => { %>
-            <p><%= book.book_name %></p>
+            <div class="book">
+                <p><%= book.book_name %></p>
+                <p><% book.author_name %></p>
+                <p><a href="/books/<%= book.book_name.toLowerCase() %>">View details</a></p>
+            </div>
         <% }) %>
     </div>
 </body>

@@ -8,9 +8,15 @@
 </head>
 <body>
     <%- include("partials/header") %>
-    <h2>All genres:</h2>
-    <% genres.forEach(genre => { %>
-        <p><%= genre.genre_name %></p>
+    <div id="genres-container">
+        <h2>All genres:</h2>
+        <% genres.forEach(genre => { %>
+            <p>
+                <a href="/genres/<%= genre.genre_name.toLowerCase() %>">
+                    <%= genre.genre_name %>
+                </a>
+            </p>
         <% }) %>
+    </div>
 </body>
 </html>

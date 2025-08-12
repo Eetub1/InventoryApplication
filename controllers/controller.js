@@ -18,11 +18,28 @@ async function getBooks(req, res) {
 async function getGenres(req , res) {
     const genres = await db.getAllGenres()
     res.render("genres", {genres: genres})
-    //res.send(genres.map(genre => genre.genre_name).join(", "))
+}
+
+async function getBooksByGenre(req, res) {
+    const genre = req.params.genre
+    const books = await db.getBooksByGenre(genre)
+    res.render("books", {books: books})
+}
+
+async function getBook(req, res) {
+    const bookName = req.params.book
+    const book = await db.getBookByName(bookName)
+    console.log(book);
+    if (!book) {
+        return res.status(404).send("Book not found");
+    }
+    res.render("book", {book})
 }
 
 module.exports = {
     getHomePage,
     getBooks,
-    getGenres
+    getGenres,
+    getBooksByGenre,
+    getBook
 }
