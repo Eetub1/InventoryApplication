@@ -9,13 +9,12 @@
 <body>
     <%- include("partials/header") %>
     <div id="genres-container">
-        <h2>All genres:</h2>
         <% genres.forEach(genre => { %>
-            <p>
+            <div class="genre-div">
                 <a href="/genres/<%= genre.genre_name.toLowerCase() %>">
                     <%= genre.genre_name %>
                 </a>
-            </p>
+            </div>
         <% }) %>
     </div>
 </body>

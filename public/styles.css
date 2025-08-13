@@ -5,6 +5,8 @@
 
 body {
     font-family:Arial, Helvetica, sans-serif;
+    background-color: #e5e5e5;
+    color: white;
 }
 
 header {
@@ -12,19 +14,21 @@ header {
     display: flex;
     align-items: center;
     padding: 10px;
+    background-color: #14213d;
+    color: gold
 }
 
 input {
     max-width: 5rem;
 }
 
-.header-item  {
-    margin-right: 1rem;
+a {
+    color: white;
+    text-decoration: none;
 }
 
-.book {
-    border: 1px solid black;
-    margin-top: 1rem;
+.header-item  {
+    margin-right: 1rem;
 }
 
 #form-inner-container {
@@ -40,18 +44,53 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: black;
+}
+
+/*genres.ejs*/
+#genres-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    color: black;
+}
+
+.genre-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: #14213d;
+    width: 8rem;
+    margin: 1rem;
+    aspect-ratio: 12/3;
+    border-radius: 7px;
+}
+
+/*books.ejs*/
+
+#books-page-main-container {
+    display: flex;
 }
 
 #books-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-evenly;
 }
 
-#genres-container {
+.book {
+    width: 15rem;
+    aspect-ratio: 6/4;
+    border-radius: 15px;
+    background-color: #14213d;
+    color: gold;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 

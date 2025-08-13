@@ -8,14 +8,16 @@
 </head>
 <body>
     <%- include("partials/header") %>
-    <div id="books-container">
-        <% books.forEach(book => { %>
-            <div class="book">
-                <p><%= book.book_name %></p>
-                <p><% book.author_name %></p>
-                <p><a href="/books/<%= book.book_name.toLowerCase() %>">View details</a></p>
-            </div>
-        <% }) %>
+    <div id="books-page-main-content">
+        <div class="books-page-main-content-item" id="books-container">
+            <% books.forEach(book => { %>
+                <div class="book">
+                    <p><%= book.book_name %></p>
+                    <p><% book.author_name %></p>
+                    <p><a href="/books/<%= book.book_name.toLowerCase() %>">View details</a></p>
+                </div>
+            <% }) %>
+        </div>
     </div>
 </body>
 </html>
