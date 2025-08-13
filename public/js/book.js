@@ -10,7 +10,7 @@ function handleClick() {
 }
 
 function saveChanges(event) {
-    event.preventDefault()
+    //event.preventDefault()
     editDialog.close()
 }
 

@@ -1,3 +1,4 @@
+const { updateBook } = require("../controllers/controller")
 const pool = require("./pool")
 
 async function getAllBooks() {
@@ -36,10 +37,20 @@ async function getBookByName(name) {
     return rows[0]
 }
 
+async function updateBookDatabase(originalName, newName, newAuthor, newYear, newPages) {
+    await pool.query(`UPDATE books SET book_name = $1, 
+                                        author_name = $2,
+                                        release_year = $3,
+                                        page_count = $4 
+                                        WHERE book_name ILIKE $5`, 
+                                    [newName, newAuthor, newYear, newPages, originalName])
+}
+
 module.exports = {
     getAllBooks,
     getMatchingBooks,
     getAllGenres,
     getBooksByGenre,
-    getBookByName
+    getBookByName,
+    updateBookDatabase
 }

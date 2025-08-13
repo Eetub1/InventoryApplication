@@ -36,8 +36,11 @@ async function getBook(req, res) {
     res.render("book", {book})
 }
 
-function updateBook(req, res) {
-    console.log("TÄÄLLÄ OLLAA");
+async function updateBook(req, res) {
+    const urlBookName = req.params.book
+    const {book_name, author_name, release_year, page_count} = req.body
+    await db.updateBookDatabase(urlBookName, book_name, author_name, release_year, page_count)
+    res.redirect("/books")
 }
 
 module.exports = {
