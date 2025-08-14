@@ -24,8 +24,9 @@
     </div>
 
     <dialog id="add-book-dialog">
-        <form action="/books/addBook" method="POST">
-            <div id="form-rows-container">
+        <div id="add-book-div">
+            <form action="/books/addBook" method="POST">
+            <div class="form-rows-container">
 
                 <div class="form-row">
                     <label for="">Name</label>
@@ -48,8 +49,13 @@
                 </div>
 
             </div>
-            <button type="submit" id="add-btn">Add book</button>
+
+            <div class="buttons-container">
+                <button type="submit" id="add-btn">Add book</button>
+                <button type="button" id="cancel-book-add-btn">Cancel</button>
+            </div>
         </form>
+        </div>
     </dialog>
     <%- include("partials/footer") %>
     <script src="/js/books.js"></script>

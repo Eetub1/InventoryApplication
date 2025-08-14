@@ -31,13 +31,14 @@ footer {
     align-items: center;
 }
 
-input {
-    max-width: 5rem;
-}
-
 a {
     color: white;
     text-decoration: none;
+}
+
+a:hover {
+    background-color: #2c4c97;
+    border-radius: 5px;
 }
 
 button {
@@ -51,6 +52,56 @@ button {
 button:hover {
     background-color: white;
     cursor: pointer;
+}
+
+.centerText {
+    text-align: center;
+}
+
+/*styles for dialogs*/
+
+dialog {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    padding: 30px;
+}
+
+#confirm-choice-dialog > p {
+    margin-bottom: 5px;
+}
+
+#add-book-div > form {
+    display: flex;
+    flex-direction: column;
+}
+
+#edit-book-div > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-container {
+    margin-top: 0.5rem;
+}
+
+.form-row {
+    display: grid;
+    margin-top: 0.5rem;
+}
+
+
+
+
+
+
+
+
+#edit-book-div {
+    display: flex;
 }
 
 .header-item  {
@@ -98,6 +149,7 @@ button:hover {
 
 #books-page-main-content {
     display: flex;
+    justify-content: center;
 }
 
 #left-sidebar {

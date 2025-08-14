@@ -8,6 +8,9 @@ sendBtn.addEventListener("click", () => editDialog.close())
 const deleteBookBtn = document.getElementById("delete-book-btn")
 deleteBookBtn.addEventListener("click", () => confirmDialog.showModal())
 
+const cancelChangesBtn = document.getElementById("cancel-changes-btn")
+cancelChangesBtn.addEventListener("click", () => editDialog.close())
+
 const confirmDialog = document.getElementById("confirm-choice-dialog")
 const confirmBtn = document.getElementById("confirm-btn")
 const cancelBtn = document.getElementById("cancel-btn")

@@ -20,16 +20,22 @@
     </div>
 
     <dialog id="confirm-choice-dialog">
-        <form action="/books/deleteBook" method="POST">
-            <input name="book_name" value="<%= book.book_name %>" type="text">
-            <button type="submit" id="confirm-btn">Confirm</button>
-        </form>
-        <button id="cancel-btn">Cancel</button>
+        <div class="centerText">
+            <p>Are you sure?</p>
+        </div>
+        <div>
+            <form action="/books/deleteBook" method="POST">
+                <input type="hidden" name="book_name" value="<%= book.book_name %>" type="text">
+                <button type="submit" id="confirm-btn">Confirm</button>
+                <button type="button" id="cancel-btn">Cancel</button>
+            </form>
+        </div>
     </dialog>
 
     <dialog id="editBookDialog">
-        <form action="/books/<%= book.book_name %>" method="POST">
-            <div id="form-rows-container">
+        <div id="edit-book-div">
+            <form action="/books/<%= book.book_name %>" method="POST">
+            <div class="form-rows-container">
 
                 <div class="form-row">
                     <label for="">Name</label>
@@ -52,8 +58,13 @@
                 </div>
 
             </div>
-            <button type="submit" id="save-changes-btn">Save changes</button>
+
+            <div class="buttons-container">
+                <button type="submit" id="save-changes-btn">Save</button>
+                <button type="button" id="cancel-changes-btn">Cancel</button>
+            </div>
         </form>
+        </div>
     </dialog>
     <%- include("partials/footer") %>
     <script src="/js/book.js"></script>
