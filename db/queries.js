@@ -46,11 +46,17 @@ async function updateBookDatabase(originalName, newName, newAuthor, newYear, new
                                     [newName, newAuthor, newYear, newPages, originalName])
 }
 
+async function addBookToDatabase(newName, newAuthor, newYear, newPages) {
+    await pool.query(`INSERT INTO books (book_name, author_name, release_year, page_count)
+        VALUES ($1, $2, $3, $4)`, [newName, newAuthor, newYear, newPages])
+}
+
 module.exports = {
     getAllBooks,
     getMatchingBooks,
     getAllGenres,
     getBooksByGenre,
     getBookByName,
-    updateBookDatabase
+    updateBookDatabase,
+    addBookToDatabase
 }

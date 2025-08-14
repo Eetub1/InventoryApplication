@@ -29,7 +29,6 @@ async function getBooksByGenre(req, res) {
 async function getBook(req, res) {
     const bookName = req.params.book
     const book = await db.getBookByName(bookName)
-    //console.log(book);
     if (!book) {
         return res.status(404).send("Book not found");
     }
@@ -40,7 +39,14 @@ async function updateBook(req, res) {
     const urlBookName = req.params.book
     const {book_name, author_name, release_year, page_count} = req.body
     await db.updateBookDatabase(urlBookName, book_name, author_name, release_year, page_count)
-    res.redirect("/books")
+    res.redirect(`/books/${book_name}`)
+}
+
+async function addBook(req, res) {
+    const {book_name, author_name, release_year, page_count} = req.body
+    //console.log(book_name, author_name, release_year, page_count);
+    await db.addBookToDatabase(book_name, author_name, release_year, page_count)
+    res.redirect(`/books/${book_name}`)
 }
 
 module.exports = {
@@ -49,5 +55,6 @@ module.exports = {
     getGenres,
     getBooksByGenre,
     getBook,
-    updateBook
+    updateBook,
+    addBook
 }

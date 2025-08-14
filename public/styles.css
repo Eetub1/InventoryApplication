@@ -27,6 +27,19 @@ a {
     text-decoration: none;
 }
 
+button {
+    width: 5rem;
+    height: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: gold;
+}
+
+button:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
 .header-item  {
     margin-right: 1rem;
 }
@@ -50,6 +63,7 @@ a {
 /*genres.ejs*/
 #genres-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
     color: black;
@@ -61,16 +75,33 @@ a {
     align-items: center;
     border: 1px solid black;
     background-color: #14213d;
-    width: 8rem;
-    margin: 1rem;
+    width: 9rem;
+    margin-top: 0.5rem;
     aspect-ratio: 12/3;
     border-radius: 7px;
 }
 
 /*books.ejs*/
 
-#books-page-main-container {
+#books-page-main-content {
     display: flex;
+    height: 100%;
+}
+
+#left-sidebar {
+    background-color: #14213d;
+    min-width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#left-sidebar button {
+    margin-top: 1rem;
+}
+
+div {
+    border: 1px solid red;
 }
 
 #books-container {
@@ -99,5 +130,20 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#book {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #14213d;
+}
+
+#book > * {
+    margin-bottom: 0.5rem;
 }
 

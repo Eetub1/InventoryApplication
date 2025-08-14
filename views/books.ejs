@@ -9,15 +9,49 @@
 <body>
     <%- include("partials/header") %>
     <div id="books-page-main-content">
+        <div class="books-page-main-content-item" id="left-sidebar">
+            <button id="new-book-btn">New book</button>
+        </div>
         <div class="books-page-main-content-item" id="books-container">
             <% books.forEach(book => { %>
                 <div class="book">
                     <p><%= book.book_name %></p>
-                    <p><% book.author_name %></p>
+                    <p><%= book.author_name %></p>
                     <p><a href="/books/<%= book.book_name.toLowerCase() %>">View details</a></p>
                 </div>
             <% }) %>
         </div>
     </div>
+
+    <dialog id="add-book-dialog">
+        <form action="/books/addBook" method="POST">
+            <div id="form-rows-container">
+
+                <div class="form-row">
+                    <label for="">Name</label>
+                    <input name="book_name" type="text">
+                </div>
+
+                <div class="form-row">
+                    <label for="">Author</label>
+                    <input name="author_name" type="text">
+                </div>
+
+                <div class="form-row">
+                    <label for="">Year</label>
+                    <input name="release_year" type="text">
+                </div>
+
+                <div class="form-row">
+                    <label for="">Pages</label>
+                    <input name="page_count" type="text">
+                </div>
+
+            </div>
+            <button type="submit" id="add-btn">Add book</button>
+        </form>
+    </dialog>
+
+    <script src="/js/books.js"></script>
 </body>
 </html>
