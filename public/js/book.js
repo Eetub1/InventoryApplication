@@ -11,11 +11,6 @@ deleteBookBtn.addEventListener("click", () => confirmDialog.showModal())
 const confirmDialog = document.getElementById("confirm-choice-dialog")
 const confirmBtn = document.getElementById("confirm-btn")
 const cancelBtn = document.getElementById("cancel-btn")
-cancelBtn.addEventListener("click", () => cancelDelete)
+cancelBtn.addEventListener("click", () => confirmDialog.close())
 confirmBtn.addEventListener("click", () => confirmDialog.close())
-
-function cancelDelete(event) {
-    event.preventDefault()
-    confirmDialog.close()
-}
 

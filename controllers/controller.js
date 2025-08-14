@@ -23,7 +23,7 @@ async function getGenres(req , res) {
 async function getBooksByGenre(req, res) {
     const genre = req.params.genre
     const books = await db.getBooksByGenre(genre)
-    res.render("books", {books: books})
+    res.render("booksByGenre", {books: books})
 }
 
 async function getBook(req, res) {
