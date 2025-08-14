@@ -4,6 +4,7 @@ const controller = require("../controllers/controller")
 
 router.get("/", controller.getBooks)
 
+router.post("/deleteBook", controller.deleteBook)
 router.post("/addBook", controller.addBook)
 router.post("/:book", controller.updateBook)
 

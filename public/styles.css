@@ -25,7 +25,7 @@ footer {
     background-color: #14213d;
     color: gold;
     margin-top: auto;
-    height: 4rem;
+    height: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +98,6 @@ button:hover {
 
 #books-page-main-content {
     display: flex;
-    height: 100%;
 }
 
 #left-sidebar {
@@ -112,10 +111,6 @@ button:hover {
 #left-sidebar button {
     margin-top: 1rem;
 }
-
-/*div {
-    border: 1px solid red;
-}*/
 
 #books-container {
     display: flex;

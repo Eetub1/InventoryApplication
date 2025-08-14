@@ -1,16 +1,21 @@
-const editBookBtn = document.getElementById("edit-book-information")
-editBookBtn.addEventListener("click", handleClick)
 const editDialog = document.getElementById("editBookDialog")
+const editBookBtn = document.getElementById("edit-book-information")
+editBookBtn.addEventListener("click", () => editDialog.showModal())
 
 const sendBtn = document.getElementById("save-changes-btn")
-sendBtn.addEventListener("click", saveChanges)
+sendBtn.addEventListener("click", () => editDialog.close())
 
-function handleClick() {
-    editDialog.showModal()
-}
+const deleteBookBtn = document.getElementById("delete-book-btn")
+deleteBookBtn.addEventListener("click", () => confirmDialog.showModal())
 
-function saveChanges(event) {
-    //event.preventDefault()
-    editDialog.close()
+const confirmDialog = document.getElementById("confirm-choice-dialog")
+const confirmBtn = document.getElementById("confirm-btn")
+const cancelBtn = document.getElementById("cancel-btn")
+cancelBtn.addEventListener("click", () => cancelDelete)
+confirmBtn.addEventListener("click", () => confirmDialog.close())
+
+function cancelDelete(event) {
+    event.preventDefault()
+    confirmDialog.close()
 }
 

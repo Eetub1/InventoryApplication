@@ -15,8 +15,17 @@
             <p>Year: <%= book.release_year %></p>
             <p>Pages: <%= book.page_count %></p>
             <button id="edit-book-information">Edit</button>
+            <button id="delete-book-btn">Delete book</button>
         </div>
     </div>
+
+    <dialog id="confirm-choice-dialog">
+        <form action="/books/deleteBook" method="POST">
+            <input name="book_name" value="<%= book.book_name %>" type="text">
+            <button type="submit" id="confirm-btn">Confirm</button>
+            <button id="cancel-btn">Cancel</button>
+        </form>
+    </dialog>
 
     <dialog id="editBookDialog">
         <form action="/books/<%= book.book_name %>" method="POST">

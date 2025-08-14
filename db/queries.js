@@ -51,6 +51,10 @@ async function addBookToDatabase(newName, newAuthor, newYear, newPages) {
         VALUES ($1, $2, $3, $4)`, [newName, newAuthor, newYear, newPages])
 }
 
+async function deleteBook(bookName) {
+    await pool.query(`DELETE FROM books WHERE book_name ILIKE $1`, [bookName])
+}
+
 module.exports = {
     getAllBooks,
     getMatchingBooks,
@@ -58,5 +62,6 @@ module.exports = {
     getBooksByGenre,
     getBookByName,
     updateBookDatabase,
-    addBookToDatabase
+    addBookToDatabase,
+    deleteBook
 }

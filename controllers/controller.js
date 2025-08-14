@@ -49,6 +49,12 @@ async function addBook(req, res) {
     res.redirect(`/books/${book_name}`)
 }
 
+async function deleteBook(req, res) {
+    const {book_name} = req.body
+    await db.deleteBook(book_name)
+    res.redirect("/books")
+}
+
 module.exports = {
     getHomePage,
     getBooks,
@@ -56,5 +62,6 @@ module.exports = {
     getBooksByGenre,
     getBook,
     updateBook,
-    addBook
+    addBook,
+    deleteBook
 }
