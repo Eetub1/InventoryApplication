@@ -99,6 +99,20 @@ dialog {
     margin-top: 0.5rem;
 }
 
+.checkbox-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+}
+
+.checkbox-row > input {
+    width: 1rem;
+}
+
+.checkbox-row:hover {
+    background-color: rgb(241, 241, 241);
+}
+
 
 
 

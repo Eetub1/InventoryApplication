@@ -61,8 +61,6 @@ async function addGenreToBook(genreId, bookId) {
 }
 
 async function addGenresToBook(genres, bookName) {
-    console.log(bookName);
-    console.log(genres);
     const result = await pool.query(`SELECT book_id FROM books WHERE book_name ILIKE $1`, [bookName])
     
     if (result.rows.length === 0) {
@@ -70,11 +68,16 @@ async function addGenresToBook(genres, bookName) {
         return
     }
     const bookId = result.rows[0].book_id
-    console.log(bookId);
 
-    for (let genre of genres.split(",")) {
+    //if only 1 genre was selected then genres is not an array but a string
+    if (typeof genres === "string") {
+        const genreId = await getGenreId(genres)
+        await addGenreToBook(genreId, bookId)
+        return
+    }
+
+    for (let genre of genres) {
         genre = genre.trim()
-        console.log(genre);
         const genreId = await getGenreId(genre)
         await addGenreToBook(genreId, bookId)
     }
