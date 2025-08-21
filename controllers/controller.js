@@ -44,8 +44,10 @@ async function updateBook(req, res) {
 
 async function addBook(req, res) {
     const {book_name, author_name, release_year, page_count} = req.body
+    const genres = req.body.genres
     //console.log(book_name, author_name, release_year, page_count);
     await db.addBookToDatabase(book_name, author_name, release_year, page_count)
+    await db.addGenresToBook(genres, book_name)
     res.redirect(`/books/${book_name}`)
 }
 

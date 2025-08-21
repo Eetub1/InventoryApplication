@@ -1,4 +1,3 @@
-const { updateBook } = require("../controllers/controller")
 const pool = require("./pool")
 
 async function getAllBooks() {
@@ -51,6 +50,36 @@ async function addBookToDatabase(newName, newAuthor, newYear, newPages) {
         VALUES ($1, $2, $3, $4)`, [newName, newAuthor, newYear, newPages])
 }
 
+async function getGenreId(genreName) {
+    const {rows} = await pool.query(`SELECT genre_id FROM genres WHERE genre_name ILIKE $1`, [genreName])
+    return rows[0].genre_id
+}
+
+async function addGenreToBook(genreId, bookId) {
+    await pool.query(`INSERT INTO book_genres (book_id, genre_id) VALUES ($1, $2)`,
+    [bookId, genreId])
+}
+
+async function addGenresToBook(genres, bookName) {
+    console.log(bookName);
+    console.log(genres);
+    const result = await pool.query(`SELECT book_id FROM books WHERE book_name ILIKE $1`, [bookName])
+    
+    if (result.rows.length === 0) {
+        console.log("Book not found");
+        return
+    }
+    const bookId = result.rows[0].book_id
+    console.log(bookId);
+
+    for (let genre of genres.split(",")) {
+        genre = genre.trim()
+        console.log(genre);
+        const genreId = await getGenreId(genre)
+        await addGenreToBook(genreId, bookId)
+    }
+}
+
 async function deleteBook(bookName) {
     await pool.query(`DELETE FROM books WHERE book_name ILIKE $1`, [bookName])
 }
@@ -63,5 +92,6 @@ module.exports = {
     getBookByName,
     updateBookDatabase,
     addBookToDatabase,
-    deleteBook
+    deleteBook,
+    addGenresToBook
 }
